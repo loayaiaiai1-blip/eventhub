@@ -36,7 +36,7 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
       fillColor: AppColors.accentColor,
       filled: true,
-      hintStyle: TextStyles.styleSize14(
+      hintStyle: TextStyles.styleSize14Regular(
         color: AppColors.greyColor,
       ),
 

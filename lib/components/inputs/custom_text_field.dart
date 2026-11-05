@@ -7,8 +7,13 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.maxLines = 1,
     this.suffixIcon,
+    this.prefixIcon,
     this.readOnly = false,
     this.onTap,
+    this.fillColor,
+    this.hintColor,
+    this.textColor,
+    this.border,
     required this.controller,
   });
 
@@ -17,8 +22,13 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final TextEditingController controller;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final bool readOnly;
   final Function()? onTap;
+  final Color? fillColor;
+  final Color? hintColor;
+  final Color? textColor;
+  final InputBorder? border;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +38,21 @@ class CustomTextField extends StatelessWidget {
       readOnly: readOnly,
       maxLines: maxLines,
       onTap: onTap,
-      decoration: InputDecoration(hintText: hint, suffixIcon: suffixIcon),
+      style: TextStyle(color: textColor),
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: TextStyle(color: hintColor),
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+        filled: fillColor != null,
+        fillColor: fillColor,
+        border: border,
+        enabledBorder: border,
+        focusedBorder: border,
+        errorBorder: border,
+        focusedErrorBorder: border,
+        disabledBorder: border,
+      ),
     );
   }
 }

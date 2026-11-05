@@ -1,5 +1,6 @@
 import 'package:eventhub/features/auth/presentation/login_screen.dart';
 import 'package:eventhub/features/auth/presentation/signin_screen.dart';
+import 'package:eventhub/features/home/presentation/home_screen.dart';
 import 'package:eventhub/features/introduction/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -9,8 +10,9 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class Routes {
   static const String splashScreen = '/';
-  static const String signinScreen = 'signin';
-  static const String loginScreen = 'login';
+  static const String signinScreen = '/signin';
+  static const String loginScreen = '/login';
+  static const String homeScreen = '/home';
   
   static GoRouter routes = GoRouter(
     navigatorKey: navigatorKey,
@@ -27,6 +29,11 @@ class Routes {
         path: loginScreen,
         builder: (context, state) => const LoginScreen(),
       ),
+      GoRoute(
+        path: homeScreen,
+        builder: (context, state) => const HomeScreen(),
+      ),
+
     ],
   );
 }

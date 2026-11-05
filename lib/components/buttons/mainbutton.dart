@@ -41,7 +41,7 @@ class MainButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: TextStyles.styleSize16(
+          style: TextStyles.styleSize16Regular(
             color: textColor ?? AppColors.whiteColor,
           ),
         ),
