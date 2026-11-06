@@ -23,10 +23,8 @@ class LocationWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
           Row(
-                          mainAxisSize: MainAxisSize.min,
-
+            mainAxisSize: MainAxisSize.min,
             children: [
-
               Text(
                   'Current Location',
                   style: TextStyle(
@@ -50,4 +48,4 @@ class LocationWidget extends StatelessWidget {
       ),
     );
   }
-}
+  }

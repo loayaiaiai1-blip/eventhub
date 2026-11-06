@@ -1,10 +1,12 @@
 import 'package:eventhub/core/utils/text_styles.dart';
+import 'package:eventhub/features/home/widgets/event_card.dart';
+import 'package:eventhub/features/home/widgets/invite_friends_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:eventhub/core/utils/colors.dart';
 import 'package:eventhub/core/constants/app_images.dart';
 import 'package:eventhub/features/home/widgets/location_widget.dart';
-import 'package:gap/gap.dart';
+
 import '../widgets/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,10 +34,10 @@ class HomeScreen extends StatelessWidget {
         ),
 
         title: LocationWidget(location: 'Enter Your Location', onTap: () {}),
-        
+
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: EdgeInsets.only(right: 16),
             child: InkWell(
               onTap: () {
                 // Navigate to notifications
@@ -53,7 +55,7 @@ class HomeScreen extends StatelessWidget {
                     AppImages.bellicon,
                     width: 22,
                     height: 22,
-                    colorFilter: const ColorFilter.mode(
+                    colorFilter: ColorFilter.mode(
                       Colors.white,
                       BlendMode.srcIn,
                     ),
@@ -65,14 +67,20 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
 
-      body: Column(
-        children: [
-          HomeHeader(),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+    body: Column(
+  children: [
+    HomeHeader(),
+    Expanded(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Title row
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     'Upcoming Events',
@@ -80,23 +88,57 @@ class HomeScreen extends StatelessWidget {
                       color: AppColors.darkColor,
                     ),
                   ),
-                  Gap(16),
-                  Expanded(
-                    child: Center(
-                      child: Text(
-                        'Your events will appear here',
-                        style: TextStyles.styleSize14Medium(
+                  InkWell(
+                    onTap: () {},
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          "See all",
+                          style: TextStyles.styleSize10Medium(
+                            color: AppColors.greyColor,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.arrow_drop_down,
                           color: AppColors.greyColor,
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 16),
+            //claude part 
+            // Horizontal events list (no data yet)
+            SizedBox(
+              height: 255,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                itemCount: 5, // replace with events.length later
+                separatorBuilder: (_, _) => const SizedBox(width: 16),
+                itemBuilder: (context, index) => const EventCard(),
+              ),
+            ),
+            const SizedBox(height: 18),
+            //end of claude part
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: InviteFriendsCard(
+                onTap: () {
+                  //invite action
+                },
+              ),
+            ),
+          ],
+        ),
       ),
+    ),
+  ],
+),
     );
   }
 }

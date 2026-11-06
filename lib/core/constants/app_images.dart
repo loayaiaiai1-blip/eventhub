@@ -14,6 +14,7 @@ class AppImages {
   static const String musicIcon = 'assets/icons/music_icon.svg';
   static const String search = 'assets/icons/search.svg';
   static const String sportsIcon = 'assets/icons/sports_icon.svg';
+  static const String articon = 'assets/icons/articon.svg';
 
   static const String bookmarkMenu = 'assets/icons/bookmark_menu.svg';
   static const String calendar = 'assets/icons/calendar.svg';
@@ -46,4 +47,5 @@ class AppImages {
   static const String logoSplash = 'assets/images/logo_splash.svg';
   static const String noNotification = 'assets/images/no_notification.png';
   static const String noUpcominEvent = 'assets/images/no_upcoming_event.svg';
+  
 }

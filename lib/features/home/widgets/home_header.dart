@@ -120,32 +120,38 @@ class _HomeHeaderState extends State<HomeHeader> {
 
               child: ListView(
                 scrollDirection: Axis.horizontal,
-
                 padding: const EdgeInsets.symmetric(horizontal: 8),
-
-                children: const [
+                children: [
                   CategoryItem(
                     title: 'Sports',
-                    icon: Icons.sports_basketball,
-                    color: AppColors.redColor,
+                    icon: SvgPicture.asset(AppImages.sportsIcon),
+                    color: AppColors.redColor, onTap: () {  },
                   ),
 
                   CategoryItem(
                     title: 'Music',
-                    icon: Icons.music_note,
-                    color: Color(0xFFF7945F),
+                    icon: SvgPicture.asset(AppImages.musicIcon),
+                    color: Color(0xFFF7945F), onTap: () {  },
                   ),
 
                   CategoryItem(
                     title: 'Food',
-                    icon: Icons.restaurant,
-                    color: Color(0xFF20D3A0),
+                    icon: SvgPicture.asset(AppImages.foodicon),
+                    color: Color(0xFF20D3A0), onTap: () {  },
                   ),
 
                   CategoryItem(
                     title: 'Art',
-                    icon: Icons.palette,
-                    color: Color(0xFF39C8F5),
+                    icon: SvgPicture.asset(
+                      AppImages.articon,
+                      width: 27,
+                      height: 27,
+                      colorFilter:  ColorFilter.mode(
+                        AppColors.whiteColor,
+                        BlendMode.srcIn,
+                      ),
+                    ),
+                    color: Color(0xFF39C8F5), onTap: () {  },
                   ),
                 ],
               ),
